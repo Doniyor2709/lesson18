@@ -97,6 +97,7 @@ const RegisterPage = () => {
           </Form.Item>
 
           <Form.Item
+          className="btn_log"
             wrapperCol={{
               span: 24,
             }}

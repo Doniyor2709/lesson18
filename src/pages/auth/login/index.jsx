@@ -26,10 +26,11 @@ const LoginPage = () => {
   };
 
   return (
-    <Fragment>
+    <Fragment >
       <h1 className="login__title">Login</h1>
       <Flex className="form__box" align="center" justify="center">
         <Form
+        
           name="basic"
           labelCol={{
             span: 24,
@@ -73,11 +74,12 @@ const LoginPage = () => {
           </Form.Item>
 
           <Form.Item
+          className="btn_log"
             wrapperCol={{
               span: 24,
             }}
           >
-            <Button style={{ width: "100%" }} type="primary" htmlType="submit">
+            <Button  style={{ width: "100%" }} type="primary" htmlType="submit">
               Login
             </Button>
           </Form.Item>
