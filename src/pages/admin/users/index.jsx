@@ -13,7 +13,7 @@ import {
   Table,
   Upload,
 } from "antd";
-import { } from "@ant-design/icons";
+import { PlusOutlined, LoadingOutlined } from "@ant-design/icons";
 import {
   useAddUserMutation,
   useDeleteUserMutation,
@@ -35,7 +35,7 @@ const UsersPage = () => {
   const [isModalLoading, setIsModalLoading] = useState(false);
   const [selected, setSelected] = useState(null);
   const [photo, setPhoto] = useState(null);
-  const [ setLoadingPhoto] = useState(false);
+  const [loadingPhoto, setLoadingPhoto] = useState(false);
   const [form] = Form.useForm();
   let params = {
     page,
@@ -163,7 +163,7 @@ const UsersPage = () => {
           ]}
         />
         
-        <button className="button-53" onClick={showModal} role="button">Add Users</button>
+        <button className="button-53" onClick={showModal} role="button">Add User</button>
         
       </Flex>
 
@@ -174,11 +174,11 @@ const UsersPage = () => {
         dataSource={users}
       >
         <Column
-          title="User Photo"
+          title="Avatar"
           dataIndex="photo"
           key="photo"
-          render={(data) => {
-            return <Image className="users__photo" src={getUsersImage(data)} />;
+          render={() => {
+            return <Image className="users__photo" src={getUsersImage()} />;
           }}
         />
         <ColumnGroup title="Full Name">
@@ -272,7 +272,18 @@ const UsersPage = () => {
             showUploadList={false}
             onChange={handlePhoto}
           >
-            
+            {photo ? (
+              <img
+                src={getUsersImage(photo)}
+                alt="avatar"
+                style={{ width: "100%" }}
+              />
+            ) : (
+              <div>
+                {loadingPhoto ? <LoadingOutlined /> : <PlusOutlined />}
+                <div style={{ marginTop: 8 }}>Upload</div>
+              </div>
+            )}
           </Upload>
 
           <Form.Item
