@@ -95,7 +95,6 @@ const EducationPage = () => {
 
   const columns = [
     {
-      title: "Full name",
       dataIndex: "user",
       key: "name",
       render: (data) => (

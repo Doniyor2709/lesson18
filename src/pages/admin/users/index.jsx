@@ -4,7 +4,6 @@ import {
   Button,
   Flex,
   Form,
-  Image,
   Input,
   Modal,
   Pagination,
@@ -136,6 +135,7 @@ const UsersPage = () => {
           placeholder="Searching..."
         />
         <Select
+        className="select"
           value={isRole}
           onChange={(value) => {
             handleChange(value);
@@ -167,21 +167,15 @@ const UsersPage = () => {
         
       </Flex>
 
-      <Table
-        scroll={{ x: 1000 }}
+      <Table className="gap"
+        scroll={{ x: 700 }}
         loading={isFetching}
         pagination={false}
         dataSource={users}
       >
         <Column
-          title="Avatar"
-          dataIndex="photo"
-          key="photo"
-          render={() => {
-            return <Image className="users__photo" src={getUsersImage()} />;
-          }}
         />
-        <ColumnGroup title="Full Name">
+        <ColumnGroup >
           <Column
             title="First Name"
             dataIndex="user"

@@ -139,7 +139,7 @@ const PortfoliosPage = () => {
         pagination={false}
         dataSource={portfolios}
       >
-        <ColumnGroup title="Name">
+        <ColumnGroup>
           <Column
             title="First Name"
             dataIndex="user"

@@ -105,7 +105,7 @@ const SkillsPage = () => {
         pagination={false}
         dataSource={newSkills}
       >
-        <ColumnGroup title="Name">
+        <ColumnGroup>
           <Column
             title="First Name"
             dataIndex="user"
